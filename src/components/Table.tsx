@@ -1,8 +1,7 @@
 import {createElement} from "react";
+import TableRow from "./TableRow";
 
 function Table(props: any) {
-    // @ts-ignore
-    // @ts-ignore
     return (
         <table>
             <thead>
@@ -16,11 +15,15 @@ function Table(props: any) {
             </thead>
             <tbody>
             {
-                props.data.map((row: any, index: number) => {
-                    return createElement("tr", {className: "Test"}, Object.keys(row).map((key: string) => {
-                        return createElement("td", {className: "Test"}, row[key]);
-                    }));
-                })}
+                props.data.map((row: any, index: number) =>
+                    createElement(TableRow, {row: row, index: index},
+                        <>
+                            <a href="#">Edit</a>
+                            <a href="#">Edit</a>
+                        </>
+                    )
+                )
+            }
             </tbody>
         </table>
     );
