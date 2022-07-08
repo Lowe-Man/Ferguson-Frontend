@@ -14,7 +14,7 @@ function App() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
+    function getData() {
         getStudents().then(data => {
             setData(data);
             setIsLoading(false);
@@ -22,14 +22,19 @@ function App() {
             setIsLoading(false);
             console.log(err);
         })
+        setIsLoading(true);
+    }
+
+    useEffect(() => {
+        getData();
     }, []);
 
     return (
         <div className="App">
-            <Header/>
+            <Header />
             <div className="Body-Container">
                 <ListContainer>
-                    <ListHeader/>
+                    <ListHeader onClick={() => getData()}/>
                     <ListBody>
                         <>
                             {isLoading ? <FontAwesomeIcon icon={faSpinner} className="fa-spin-pulse Loading-Icon"/> :

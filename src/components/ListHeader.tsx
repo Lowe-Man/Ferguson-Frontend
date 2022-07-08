@@ -1,7 +1,7 @@
 import './ListHeader.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faRotate} from "@fortawesome/free-solid-svg-icons";
-function ListHeader() {
+function ListHeader(props: any) {
     return (
         <div className="List-Header">
             <div className="Label-Container">
@@ -11,7 +11,7 @@ function ListHeader() {
                 <span>State Code</span>
                 <span>State Name</span>
             </div>
-            <FontAwesomeIcon icon={faRotate} className="Refresh-Button"/>
+            <FontAwesomeIcon icon={faRotate} className="Refresh-Button" onClick={props.onClick}/>
         </div>
     );
 }
