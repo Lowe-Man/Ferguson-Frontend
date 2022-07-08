@@ -18,9 +18,10 @@
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
   cursor: pointer;
+  background: transparent;
 }
 .Add-Button:hover {
-  background: #2F3136;
+  color: #cccccc;
 }
 
 /*# sourceMappingURL=Header.css.map */
