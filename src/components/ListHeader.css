@@ -5,7 +5,8 @@
   padding: 0.5rem 1rem;
   background-color: #60C2EC;
   color: white;
-  width: 50%;
+  width: 100%;
+  box-sizing: border-box;
   border-radius: 50px;
 }
 .List-Header .Label-Container {
