@@ -1,0 +1,20 @@
+.Button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background-color: #eee;
+    border-radius: 0.25em;
+    border: 1px solid #999;
+    color: #333;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0.5em 1em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Button-Submit {
+    background-color: #1C89C5;
+    color: white;
+}

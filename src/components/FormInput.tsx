@@ -4,7 +4,7 @@ function FormInput(props: any) {
     return (
         <div className="Form-Input" onBlur={props.onBlur} onFocus={props.onFocus}>
             <label htmlFor={props.id}>{props.label}</label>
-            <input type={props.type} id={props.id} />
+            <input type={props.type} id={props.id} name={props.id} />
         </div>
     );
 }
