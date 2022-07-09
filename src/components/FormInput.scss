@@ -1,0 +1,36 @@
+.Form-Input {
+  display: block;
+  position: relative;
+
+  &:first-child {
+    margin-top: .5rem;
+  }
+
+  &:not(:first-child) {
+    margin-top: 1.25rem;
+  }
+
+  input {
+    padding: .5rem;
+    border: 1px solid black;
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(0.5rem, 25%);
+    cursor: text;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .input-active {
+    position: absolute;
+    transform: translate(0, -100%);
+    font-size: small;
+
+    &:after {
+      content: ":";
+    }
+  }
+}

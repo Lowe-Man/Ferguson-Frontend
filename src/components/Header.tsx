@@ -7,7 +7,7 @@ function Header(props: any) {
         <>
             <div className="Header-Accent"></div>
             <div className="Header">
-                <FontAwesomeIcon icon={faCirclePlus} className="Add-Button" />
+                <FontAwesomeIcon icon={faCirclePlus} className="Add-Button" onClick={props.onClick} />
             </div>
         </>
     );

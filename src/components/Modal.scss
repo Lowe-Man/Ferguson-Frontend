@@ -1,0 +1,33 @@
+.Modal-Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.Modal-Container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 1001;
+  border: 2px solid black;
+  height: fit-content;
+  border-radius: 8px;
+}
+
+.Modal-Close-Icon {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  justify-self: end;
+  cursor: pointer;
+  margin-top: .25rem;
+  margin-right: .25rem;
+}
