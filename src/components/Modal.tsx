@@ -11,7 +11,7 @@ function Modal(props: any) {
                 <FontAwesomeIcon icon={faXmark} className="Modal-Close-Icon" onClick={props.onClose} />
                 {props.children}
             </div>
-        </>, document.getElementById('react-modal-root')!)
+        </>, document.getElementById(props.elementId)!)
 }
 
 export default Modal

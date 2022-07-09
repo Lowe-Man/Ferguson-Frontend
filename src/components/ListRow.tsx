@@ -11,7 +11,7 @@ function ListRow(props: any) {
                 <ListItem item={props.data.StateCode}/>
                 <ListItem item={props.data.StateName}/>
             </div>
-            <button type="button">View</button>
+            <button type="button" onClick={props.onClick}>View</button>
         </div>
     );
 }

@@ -5,19 +5,23 @@ import ListHeader from "./components/ListHeader";
 import ListContainer from "./components/ListContainer";
 import ListBody from "./components/ListBody";
 import ListRow from "./components/ListRow";
-import {createStudent, getStudents} from "./services/student";
+import {createStudent, getStudent, getStudents} from "./services/student";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
 import Modal from "./components/Modal";
 import Form from "./components/Form";
 import FormInput from "./components/FormInput";
 import Button from "./components/Button";
+import Student from "./classes/Student";
 
 
 function App() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [isOpen, setIsOpen] = useState(false);
+    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+    const [isViewModalOpen, setIsViewModalOpen] = useState(false);
+    const [singleStudent, setSingleStudent] = useState<Student[]>([]);
+    const [studentLoaded, setStudentLoaded] = useState(false);
 
     function toggleLabel(e: any) {
         if (e.target.value === "") {
@@ -42,8 +46,9 @@ function App() {
 
     return (
         <div className="App">
-            <Header onClick={() => setIsOpen(!isOpen)}/>
-            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} className="Modal-Container">
+            <Header onClick={() => setIsAddModalOpen(!isAddModalOpen)}/>
+            <Modal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} className="Modal-Container"
+                   elementId="add-item-modal">
                 <Form onSubmit={(e: any) => {
                     e.preventDefault();
                     const data = new FormData(e.target);
@@ -55,7 +60,7 @@ function App() {
                     }
                     createStudent(student).then((res) => {
                         getData();
-                        setIsOpen(false);
+                        setIsAddModalOpen(false);
                     }).catch((err) => {
                         console.log(err);
                     })
@@ -70,6 +75,19 @@ function App() {
                     <Button type="submit">Create</Button>
                 </Form>
             </Modal>
+            <Modal isOpen={isViewModalOpen} onClose={() => {
+                setIsViewModalOpen(false)
+            }} className="Modal-Container" elementId="view-item-modal">
+                {
+                    studentLoaded ? <Form>
+                        <FormInput id="firstName" label="First Name" type="text" readOnly value={singleStudent[0].FirstName}/>
+                        <FormInput id="firstName" label="First Name" type="text" readOnly value={singleStudent[0].LastName}/>
+                        <FormInput id="firstName" label="First Name" type="text" readOnly value={singleStudent[0].PhoneNumber}/>
+                        <FormInput id="firstName" label="First Name" type="text" readOnly value={singleStudent[0].StateCode}/>
+                        <FormInput id="firstName" label="First Name" type="text" readOnly value={singleStudent[0].StateName}/>
+                    </Form> : <FontAwesomeIcon icon={faSpinner} className="fa-spin-pulse Loading-Icon"/>
+                }
+            </Modal>
             <div className="Body-Container">
                 <ListContainer>
                     <ListHeader onClick={() => getData()}/>
@@ -78,7 +96,20 @@ function App() {
                             {isLoading ? <FontAwesomeIcon icon={faSpinner} className="fa-spin-pulse Loading-Icon"/> :
                                 data.map(item => {
                                     return (
-                                        ListRow({data: item})
+                                        ListRow({
+                                            data: item, onClick: (e: any) => {
+                                                setIsViewModalOpen(!isViewModalOpen);
+                                                const index = [...e.target.parentElement.parentElement.children].indexOf(e.target.parentElement);
+                                                const rowId = data[index]["_id"];
+                                                getStudent(rowId).then(data => {
+                                                    setSingleStudent(data);
+                                                    setStudentLoaded(true);
+                                                }).catch(err => {
+                                                    console.log(err);
+                                                })
+                                                setStudentLoaded(false);
+                                            }
+                                        })
                                     )
                                 })
                             }
