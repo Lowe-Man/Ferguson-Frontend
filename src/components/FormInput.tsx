@@ -6,10 +6,17 @@ function FormInput(props: any) {
             {
                 props.readOnly ? <>
                     <label htmlFor={props.id} className="input-active">{props.label}</label>
-                    <input type={props.type} id={props.id} name={props.id} value={props.value} readOnly />
+                    <input type={props.type} id={props.id} name={props.id} value={props.value} readOnly/>
                 </> : <>
-                    <label htmlFor={props.id}>{props.label}</label>
-                    <input type={props.type} id={props.id} name={props.id} readOnly />
+                    {props.onChange ? <>
+                        <label htmlFor={props.id}>{props.label}</label>
+                        <input type={props.type} id={props.id} name={props.id} value={props.value}
+                               onChange={props.onChange}/>
+                    </> : <>
+                        <label htmlFor={props.id}>{props.label}</label>
+                        <input type={props.type} id={props.id} name={props.id}/>
+                    </>
+                    }
                 </>
             }
         </div>
