@@ -30,24 +30,40 @@ function App() {
                 pattern: {
                     value: /^[a-zA-Z ,.'-]+$/gm,
                     message: 'First name must be alphabetic'
+                },
+                required: {
+                    value: true,
+                    message: 'First name is required'
                 }
             },
             LastName: {
                 pattern: {
                     value: /^[a-zA-Z ,.'-]+$/gm,
                     message: 'Last name must be alphabetic'
+                },
+                required: {
+                    value: true,
+                    message: 'Last name is required'
                 }
             },
             PhoneNumber: {
                 pattern: {
                     value: /^(\([0-9]{3}\)\s[0-9]{3}-[0-9]{4})$/gm,
                     message: 'Please enter a valid phone number as (###) ###-####'
+                },
+                required: {
+                    value: true,
+                    message: 'Phone number is required'
                 }
             },
             StateCode: {
                 pattern: {
                     value: /(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[AT]|W[AIVY])/gm,
                     message: 'Please enter a valid state code'
+                },
+                required: {
+                    value: true,
+                    message: 'State code is required'
                 }
             }
         },
@@ -90,16 +106,13 @@ function App() {
                    elementId="add-item-modal">
                 <Form onSubmit={handleSubmit}>
                     <FormInput id="firstName" label="First Name" type="text" onBlur={toggleLabel}
-                               onFocus={toggleLabel} onChange={handleChange("FirstName")}/>
-                    {errors.FirstName && <p className="error">{errors.FirstName}</p>}
-                    <FormInput id="lastName" label="Last Name" type="text" onBlur={toggleLabel} onFocus={toggleLabel} onChange={handleChange("LastName")}/>
-                    {errors.LastName && <p className="error">{errors.LastName}</p>}
+                               onFocus={toggleLabel} onChange={handleChange("FirstName")} hasError={errors.FirstName}/>
+                    <FormInput id="lastName" label="Last Name" type="text" onBlur={toggleLabel} onFocus={toggleLabel}
+                               onChange={handleChange("LastName")} hasError={errors.LastName}/>
                     <FormInput id="phoneNumber" label="Phone Number" type="text" onBlur={toggleLabel}
-                               onFocus={toggleLabel} onChange={handleChange("PhoneNumber")}/>
-                    {errors.PhoneNumber && <p className="error">{errors.PhoneNumber}</p>}
+                               onFocus={toggleLabel} onChange={handleChange("PhoneNumber")} hasError={errors.PhoneNumber}/>
                     <FormInput id="stateCode" label="State Code" type="text" onBlur={toggleLabel}
-                               onFocus={toggleLabel} onChange={handleChange("StateCode")}/>
-                    {errors.StateCode && <p className="error">{errors.StateCode}</p>}
+                               onFocus={toggleLabel} onChange={handleChange("StateCode")} hasError={errors.StateCode}/>
                     <Button type="submit">Create</Button>
                 </Form>
             </Modal>

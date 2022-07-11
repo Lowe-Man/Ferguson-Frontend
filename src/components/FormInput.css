@@ -1,6 +1,7 @@
 .Form-Input {
-  display: block;
+  display: flex;
   position: relative;
+  flex-direction: column;
 }
 .Form-Input:first-child {
   margin-top: 0.5rem;
@@ -19,6 +20,15 @@
   transform: translate(0.5rem, 25%);
   cursor: text;
   transition: all 0.25s ease-in-out;
+}
+.Form-Input .form-error {
+  color: red;
+  margin-top: 0.5rem;
+  width: 10rem;
+  text-align: center;
+}
+.Form-Input .form-error:before {
+  content: "* ";
 }
 .Form-Input .input-active {
   position: absolute;
