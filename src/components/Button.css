@@ -9,7 +9,6 @@
   font-family: sans-serif;
   font-size: 1em;
   font-weight: bold;
-  margin: 0.5em 1em;
   text-align: center;
   cursor: pointer;
 }
@@ -25,7 +24,6 @@
 .Button-View {
   background-color: #1c88c7;
   color: white;
-  margin: 0.5em 1em;
   border: none;
   font-size: 0.75em;
 }

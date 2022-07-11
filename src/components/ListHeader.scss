@@ -15,6 +15,8 @@
     grid-template-rows: 1fr;
     justify-items: center;
     width: 100%;
+    font-weight: bold;
+    text-decoration: underline;
     height: max-content;
   }
 
@@ -22,7 +24,7 @@
     display: inline-block;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.25rem;
     font-size: 1.2rem;
     cursor: pointer;
     background: transparent;
