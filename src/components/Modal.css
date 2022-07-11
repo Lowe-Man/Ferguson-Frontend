@@ -21,6 +21,10 @@
   border: 2px solid black;
   height: fit-content;
   border-radius: 8px;
+  min-width: 10rem;
+  min-height: 10rem;
+  justify-items: center;
+  justify-content: center;
 }
 
 .Modal-Close-Icon {
