@@ -7,6 +7,7 @@ function Header(props: any) {
         <>
             <div className="Header-Accent"></div>
             <div className="Header">
+                <img className="logo" src="https://www.ferguson.com/wwwstatic/css/ferguson/common/ferguson-logo-white-new.svg" alt="Site Logo"/>
                 <FontAwesomeIcon icon={faCirclePlus} className="Add-Button" onClick={props.onClick} />
             </div>
         </>

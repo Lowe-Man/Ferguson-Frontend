@@ -1,5 +1,3 @@
-import Student from "../classes/Student";
-
 const API_URL = "http://108.235.200.16:10003";
 
 function studentResponse(student: any) {

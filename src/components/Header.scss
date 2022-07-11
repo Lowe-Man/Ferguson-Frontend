@@ -1,25 +1,36 @@
 .Header-Accent {
-    background-color: #1A1E22;
-    padding: 0.5rem;
+  background-color: #1A1E22;
+  padding: 0.5rem;
 }
 
 .Header {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: #034167;
-    color: white;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #034167;
+  color: white;
 }
 
 .Add-Button {
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    background: transparent;
-    &:hover {
-        color: darken(white, 20%);
-    }
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: transparent;
+  justify-self: right;
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+
+  &:hover {
+    color: darken(white, 20%);
+  }
+}
+
+.logo {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+  justify-self: left;
 }

@@ -4,8 +4,9 @@
 }
 
 .Header {
-  display: flex;
-  justify-content: right;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
   padding: 0.5rem 1rem;
   background-color: #034167;
@@ -19,9 +20,18 @@
   font-size: 1.2rem;
   cursor: pointer;
   background: transparent;
+  justify-self: right;
+  grid-row: 1/span 1;
+  grid-column: 1/span 1;
 }
 .Add-Button:hover {
   color: #cccccc;
+}
+
+.logo {
+  grid-row: 1/span 1;
+  grid-column: 1/span 1;
+  justify-self: left;
 }
 
 /*# sourceMappingURL=Header.css.map */
