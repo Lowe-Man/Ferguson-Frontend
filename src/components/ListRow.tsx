@@ -1,5 +1,6 @@
 import './ListRow.scss';
 import ListItem from "./ListItem";
+import Button from "./Button";
 
 function ListRow(props: any) {
     return (
@@ -11,7 +12,7 @@ function ListRow(props: any) {
                 <ListItem item={props.data.StateCode}/>
                 <ListItem item={props.data.StateName}/>
             </div>
-            <button type="button" onClick={props.onClick}>View</button>
+            <Button type="button" className="Button Button-View" onClick={props.onClick}>View</Button>
         </div>
     );
 }

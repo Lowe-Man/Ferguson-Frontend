@@ -17,4 +17,20 @@
 .Button-Submit {
     background-color: #1C89C5;
     color: white;
+
+    &:hover {
+        background-color: darken(#1C89C5, 20%);
+    }
+}
+
+.Button-View {
+    background-color: #1c88c7;
+    color: white;
+    margin: 0.5em 1em;
+    border: none;
+    font-size: .75em;
+
+    &:hover {
+        background-color: darken(#1c88c7, 20%);
+    }
 }

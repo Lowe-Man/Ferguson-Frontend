@@ -18,5 +18,19 @@
   background-color: #1C89C5;
   color: white;
 }
+.Button-Submit:hover {
+  background-color: #0f4b6c;
+}
+
+.Button-View {
+  background-color: #1c88c7;
+  color: white;
+  margin: 0.5em 1em;
+  border: none;
+  font-size: 0.75em;
+}
+.Button-View:hover {
+  background-color: #0f4b6e;
+}
 
 /*# sourceMappingURL=Button.css.map */
